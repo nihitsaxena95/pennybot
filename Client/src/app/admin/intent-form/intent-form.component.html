@@ -1,0 +1,172 @@
+<!-- 
+
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+
+<div class="home-container">
+	<div>
+		<h3>Add Synonyms</h3>
+		<tag-input [(ngModel)]="syn" [theme]="'dark'" name="test" (keyup.enter)="addSyn(syn)">
+		</tag-input>
+	</div>
+
+	<div>
+		<h3>Drag and drop</h3>
+		<tag-input  [(ngModel)]="dragAndDropExample"
+		[modelAsStrings]="true"
+		[theme]="'dark'"
+		[dragZone]="'zone1'"
+		[editable]="true">
+	</tag-input>
+</div>
+
+<div>
+	<h3>Drag and drop (as string) can be moved to another tag-input (to the next)</h3>
+	<tag-input  [(ngModel)]="dragAndDropStrings"
+	[modelAsStrings]="true"
+	[theme]="'dark'"
+	[dragZone]="'zone1'"
+	[editable]="true">
+</tag-input>
+</div>
+
+
+
+</div>
+
+<app-bottom-chat></app-bottom-chat>
+<app-footer></app-footer>
+-->
+
+
+
+
+
+<div>
+  <div>
+    
+<!-- <app-header></app-header> -->
+  </div>
+  <div class=" box col-md-12 col-lg-10">
+
+    <tabset class="tab-container">
+      <div class="tab-content">      
+        <tab heading="Intent" ng-reflect-heading="Home" class="tab-pane">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Intent name</label>
+              <input type="email" class="form-control" 
+              [(ngModel)]="intent.name" name="intentname" aria-describedby="emailHelps"  placeholder="Intent">
+            </div>
+            <div class="form-group">
+             <label for="exampleInputPassword1">Meaning</label>
+             <input type="text" class="form-control" [(ngModel)]="intent.meaning" name="meaning"  placeholder="Meaning">
+           </div>
+           <button type="submit" href="#Profile" (click)="addIntent()" class="btn btn-primary">Save</button>
+         </form>
+       </tab>
+
+
+       <tab heading="Synonym" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
+
+
+         <div class="home-container">
+          <!--  <div>
+            <h3>Add Synonyms</h3>
+            <tag-input  [theme]="'dark'" name="test" >
+            </tag-input>
+          </div> -->
+
+          <div>
+            <h3>Add synonyms</h3>
+            <tag-input  [(ngModel)]="syn"
+            [modelAsStrings]="true"
+            [theme]="'dark'"
+            [dragZone]="'zone1'"
+            [editable]="true"
+            name="test"
+            >
+          </tag-input> 
+          <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" (click)="addSyn(syn)">
+  Add Synonyms
+</button>
+        </div>
+
+        <!-- <div>
+          <h3>Already existing synonyms</h3>
+          <tag-input  [(ngModel)]="dragAndDropStrings"
+          [modelAsStrings]="true"
+          [theme]="'dark'"
+          [dragZone]="'zone1'"
+          [editable]="true">
+        </tag-input>
+      </div> -->
+      <div class="existing">
+      <h3>Existing synonyms</h3>
+       
+          <span class="badge badge-pill text-white" *ngFor="let value of synonyms">{{value}}</span>
+              
+      </div>
+     
+   <!-- <a href=""><span class="badge badge-default text-white" (click)="addSyn(syn)">Add</span></a> -->
+    </div>
+    
+  </tab>
+
+
+
+
+  <tab heading="ML" ng-reflect-heading="Messages" class="tab-pane active">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Add similar questions..</label><br>
+        <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="same as">        
+      </div>
+
+      <div class="form-group" *ngFor="let question of questions">
+       
+        <input  type="text" class="form-control"  aria-describedby="emailHelp" placeholder="same as">
+      </div>
+
+  <a (click)="addQues()"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add more questions</a>
+    </form>
+  </tab>
+
+
+  <tab heading="Priority No" ng-reflect-heading="Messages" class="tab-pane active">
+   
+ <div class="row">
+    <div class="col-sm-3">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                Favorite drinks
+            </div>
+            <div class="panel-body">
+                <ul class="list-group" dnd-sortable-container [sortableData]="listOne">
+                    <li *ngFor="let item of listOne; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">{{item}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                My prefences:<br>
+            <span *ngFor="let item of listOne; let i = index">{{i + 1}}) {{item}}<br/></span>   
+               </div>
+        </div>
+    </div>
+</div>
+
+  </tab>
+
+</div>
+</tabset>
+</div>
+
+
+<app-bottom-chat></app-bottom-chat>
+<!-- <app-footer></app-footer>
+ -->
+</div>

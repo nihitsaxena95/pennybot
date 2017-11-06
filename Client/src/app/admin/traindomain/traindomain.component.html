@@ -1,0 +1,297 @@
+<!-- <div class="row">
+	<div class="col-sm-12 col-md-3 intent"> 
+		<a [routerLink]="['intentForm']"> 
+			<div class="card">
+				<div class="card-body intent-body">
+					<div class="h1 text-muted text-right mb-4">
+						<i class="fa fa-plus-circle" aria-hidden="true"></i>
+					</div>
+					<div class="h4 mb-0">Add Intent</div>
+					<small class="text-muted text-uppercase font-weight-bold">Comments</small>  
+				</div>
+			</div>
+		</a>
+	</div>
+
+
+	<div class="col-sm-12 col-md-3 intent"> 
+		<a > 
+			<div class="card">
+				<div class="card-body intent-body">
+					<div class="h1 text-muted text-right mb-4">
+						<i class="fa fa-money" aria-hidden="true"></i>
+					</div>
+					<div class="h4 mb-0">Domain</div>
+					<small class="text-muted text-uppercase font-weight-bold">Comments</small>  
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+-->
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<span class="glyphicon glyphicon-comment"></span> Pending Questions
+				</div>
+				<div class="panel-body">
+					<ul class="chat">
+						<li class="left clearfix">
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Jack Sparrow</strong> 
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+									dolor, quis ullamcorper ligula sodales.
+								</p>
+							</div>
+						</li>
+						<li class="left clearfix">
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Jack Sparrow</strong> 
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+									dolor, quis ullamcorper ligula sodales.
+								</p>
+							</div>
+						</li>
+						<li class="left clearfix">
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Jack Sparrow</strong> 
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+									dolor, quis ullamcorper ligula sodales.
+								</p>
+							</div>
+						</li>
+						<li class="left clearfix">
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Jack Sparrow</strong> 
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+									dolor, quis ullamcorper ligula sodales.
+								</p>
+							</div>
+						</li>
+						<li class="left clearfix">
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Jack Sparrow</strong> 
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+									dolor, quis ullamcorper ligula sodales.
+								</p>
+							</div>
+						</li>
+						<li class="left clearfix">
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Jack Sparrow</strong> 
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+									dolor, quis ullamcorper ligula sodales.
+								</p>
+							</div>
+						</li>
+						<li class="left clearfix">
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Jack Sparrow</strong> 
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+									dolor, quis ullamcorper ligula sodales.
+								</p>
+							</div>
+						</li>
+						<li class="left clearfix">
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Jack Sparrow</strong> 
+								</div>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+									dolor, quis ullamcorper ligula sodales.
+								</p>
+							</div>
+						</li>
+
+
+					</ul>
+
+				</div>
+				<div class="panel-footer">
+					<div class="input-group">
+						<input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+						<span class="input-group-btn">
+							<button class="btn btn-warning btn-sm" id="btn-chat">
+								Send</button>
+							</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div id="c_card" class="card pi-draggable" draggable="true">
+					<div class="card-header">
+						<h4>Q. What is the Retirement Plan?
+							{{ref[0].word}}</h4>
+					</div>
+					<div class="card-body">
+
+						<table id="c_table" class="table pi-draggable" draggable="true">
+							<thead>
+								<tr>
+								    <th>Word</th>
+									<th>Type</th>
+									<th>Value</th>
+									<th>Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let obj of rem">
+									<td>{{obj.word}}</td>
+									<td>{{obj.type}}</td>
+									<td>{{obj.value}}</td>
+									<div *ngIf = "obj.type==undefined">
+									<td *ngIf="obj.value==undefined"> <a id="c_button" (click)="largeModal.show()" class="btn btn-primary pi-draggable btn-block" draggable="true">Add </a></td>
+									</div>
+									<div *ngIf = "obj.type==undefined">
+									<td *ngIf="obj.value!=undefined"> <a id="c_button" (click)="largeModal.show()" class="btn btn-primary pi-draggable btn-block" draggable="true">Add </a></td>
+									</div>
+									<div *ngIf = "obj.type!=undefined">
+									<td *ngIf="obj.value==undefined"> <a id="c_button" (click)="largeModal.show()" class="btn btn-primary pi-draggable btn-block" draggable="true">Add </a></td>
+									</div>
+									<div *ngIf = "obj.type!=undefined">
+									<td *ngIf="obj.value!=undefined" > <a class="btn btn-primary btn-block changebutton" (click)="largeModal.show()" role="button"><span class="button-text">Change</span></a></td>
+									</div>
+								</tr>
+						
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+					<div id="c_card" class="card pi-draggable" draggable="true">
+							
+							<div class="card-body">
+								<h4>Intent</h4>
+								
+								<p class=" p-y-1">Some quick example text to build on the card title .</p>
+
+								<a id="c_button" class="btn btn-primary pi-draggable" (click)="largeModal.show()" draggable="true">Add </a>
+
+									<a href="" class="pull-right">View More </a>
+								
+							</div>
+						</div>
+						<div id="c_card" class="card pi-draggable" draggable="true">
+							
+							<div class="card-body">
+								<h4>Context</h4>
+								
+								<p class=" p-y-1">Some quick example text to build on the card title .</p>
+								<a id="c_button" class="btn btn-primary pi-draggable" (click)="largeModal.show()" draggable="true">Add</a>
+								<a href="" class="pull-right">View More </a>
+							</div>
+						</div>
+			</div>
+
+
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+	<div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Add Node</h4>
+					<button type="button" class="close" (click)="largeModal.hide()" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<tabset class="tab-container">
+						<div class="tab-content">     
+							<tab heading="Intent" ng-reflect-heading="Home" class="tab-pane">
+								<form>
+									<div class="form-group">
+										<label for="exampleInputEmail1">Intent name</label>
+										<input type="text" class="form-control" id="intentname" [(ngModel)]="ref.type" name="type" aria-describedby="emailHelps"  placeholder="Intent">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputPassword1">value</label>
+										<input type="text" class="form-control" id="meaning" placeholder="Meaning" [(ngModel)]="ref.value" name="value" >
+									</div>
+
+								</form>
+							</tab>
+                           
+
+							<tab heading="Synonym" ng-reflect-heading="Profile" id="Profile" class="tab-pane">
+
+
+								<div class="home-container">
+
+									<div>
+										<h3>Add synonyms</h3>
+										<tag-input  [(ngModel)]="syn"
+										[modelAsStrings]="true"
+										[theme]="'dark'"
+										[dragZone]="'zone1'"
+										[editable]="true"
+										name="test"
+										(keyup.enter)="addSyn(syn)">
+									</tag-input>
+								</div>
+
+								<div class="existing">
+									<h3>Existing synonyms</h3>
+									<span class="badge badge-pill text-white">what</span>
+									<span class="badge badge-pill text-white" >about</span>
+									<span class="badge badge-pill text-white" >how</span>
+									<span class="badge badge-pill text-white" >tell</span>
+									<span class="badge badge-pill text-white" >define</span>
+								</div>
+							</div>
+
+						</tab>
+						
+					</div>
+				</tabset>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" (click)="largeModal.hide()">Close</button>
+				<!-- <button *ngIf="editflag!=rem.type" type="button" class="btn btn-primary" (click)="change(ref)" ><span (click)="largeModal.hide()">Save Intent</span></button>
+				 -->
+
+
+				<button *ngIf="editflag==rem.type" type="button" class="btn btn-primary" (click)="add(ref)"><span (click)="largeModal.hide()">Save changes</span></button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

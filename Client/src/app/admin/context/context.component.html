@@ -1,0 +1,84 @@
+<div id="c_card" class="card pi-draggable" draggable="true">
+
+	<div class="card-body">
+		<h4>Context</h4>
+
+		<div class="existing ">
+
+			<span class="badge badge-pill text-white"  *ngFor="let context of contextName">
+			{{context.properties.name}}
+			<a (click)="deleteContext(context)">
+				<i class="fa fa-times" aria-hidden="true"></i></a></span>
+
+			</div>
+			<a id="c_button" class="btn btn-primary pi-draggable add" (click)="addContext.show()" draggable="true">Add</a>
+			<a (click)="viewContext.show()" class="pull-right">View More >></a>
+		</div>
+	</div>
+	<div bsModal #addContext="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Add Context</h4>
+					<button type="button" class="close" (click)="addContext.hide()" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<tabset class="tab-container">
+						<div class="tab-content">     
+							<tab heading="Context" ng-reflect-heading="Home" class="tab-pane">
+								<form>
+									<div class="form-group">
+										<label for="exampleInputPassword1">Context Name</label>
+										<input type="text" class="form-control" id="contextname" name="contextname" placeholder="Meaning" [(ngModel)]="context.name">
+										<!-- <label for="exampleInputPassword1">Value</label>
+										<input type="text" class="form-control" id="contextvalue" name="contextvalue" placeholder="Meaning" [(ngModel)]="context.value"> -->
+									</div>
+								</form>
+							</tab>
+						</div>
+					</tabset>
+				</div>
+				<div class="modal-footer">
+
+					<button type="button" class="btn btn-primary" ><span (click)="gotoAddContext()">Next</span></button>
+				</div>
+			</div> <!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<div bsModal #viewContext="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Add Intent</h4>
+					<button type="button" class="close" (click)="viewContext.hide()" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<tabset class="tab-container">
+						<div class="tab-content">     
+							<tab heading="Intent" ng-reflect-heading="Home" class="tab-pane">
+								<form>
+									<div class="form-group">
+										<label for="exampleInputEmail1">Intent name</label>
+										<input type="text" class="form-control" id="intentname" aria-describedby="emailHelps"  placeholder="Intent">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputPassword1">value</label>
+										<input type="text" class="form-control" id="meaning" placeholder="Meaning">
+									</div>
+								</form>
+							</tab>
+
+						</div>
+					</tabset>
+				</div>
+				<div class="modal-footer">
+
+					<button type="button" class="btn btn-primary" (click)="nodedatasave()"><span (click)="viewContext.hide()">Next</span></button>
+				</div>
+			</div> <!-- /.modal-content-->
+		</div> <!-- /.modal-dialog-->
+</div><!-- /.modal-->
